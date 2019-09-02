@@ -4,7 +4,6 @@ services:
   # Jaeger
   jaeger:
     image: jaegertracing/all-in-one:latest
-    network: traefik-net
     ports:
       - "16686:16686"
       - "14268"
@@ -13,7 +12,6 @@ services:
   # Collector
   oc_collector:
     image: omnition/opencensus-collector:latest
-    network: traefik-net
     command: ["--config=/etc/oc-collector-config.yml", "--http-pprof-port=1777"]
     volumes:
       - ./oc-collector-config.yml:/etc/oc-collector-config.yml
@@ -29,7 +27,6 @@ services:
   # Agent
   oc_agent:
     image: omnition/opencensus-agent:latest
-    network: traefik-net
     command: ["--config=/etc/oc-agent-config.yml", "--http-pprof-port=1888"]
     volumes:
       - ./oc-agent-config.yml:/etc/oc-agent-config.yml
