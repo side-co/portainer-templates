@@ -6,7 +6,7 @@ Documentation is available ReadTheDocs for more information about the template d
 
 ## Portainer templates
 
-- Opencensus Services:
+- Tracing Services:
   - `jaegertracing/all-in-one:latest`
   - `omnition/opencensus-collector:latest`
   - `omnition/opencensus-agent:latest`

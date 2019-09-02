@@ -1,8 +1,9 @@
 [
   {
     "type": 2,
-    "title": "Opencensus Services",
+    "title": "Tracing Services",
     "description": "Easily collect telemetry like metrics and distributed traces from your services",
+    "note": "This will deploy Jaeger, Opencensus Agent & Opencensus Collector",
     "logo": "https://opencensus.io/images/opencensus-logo.png",
     "categories": [
       "tracing"
@@ -10,7 +11,7 @@
     "platform": "linux",
     "repository": {
       "url": "https://github.com/side-co/portainer-templates",
-      "stackfile": "stacks/opencensus-services/docker-stack.yml"
+      "stackfile": "stacks/tracing-services/docker-stack.yml"
     }
   }
 ]

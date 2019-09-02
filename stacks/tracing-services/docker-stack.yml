@@ -10,7 +10,7 @@ services:
     restart: always
 
   # Collector
-  oc-collector:
+  oc_collector:
     image: omnition/opencensus-collector:latest
     command: ["--config=/etc/oc-collector-config.yml", "--http-pprof-port=1777"]
     volumes:
@@ -22,10 +22,10 @@ services:
       - "8888:8888" # Prometheus metrics
     restart: always
     depends_on:
-      - jaeger-all-in-one
+      - jaeger
 
   # Agent
-  oc-agent:
+  oc_agent:
     image: omnition/opencensus-agent:latest
     command: ["--config=/etc/oc-agent-config.yml", "--http-pprof-port=1888"]
     volumes:
@@ -37,4 +37,4 @@ services:
       - "55679:55679"
     restart: always
     depends_on:
-      - oc-collector
+      - oc_collector
