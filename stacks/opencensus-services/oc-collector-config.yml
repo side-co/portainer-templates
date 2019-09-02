@@ -1,9 +1,9 @@
 queued-exporters:
-  jaeger-all-in-one:
+  jaeger:
     num-workers: 4
     queue-size: 100
     retry-on-failure: true
     sender-type: jaeger-thrift-http
     jaeger-thrift-http:
-      collector-endpoint: http://jaeger-all-in-one:14268/api/traces
+      collector-endpoint: http://jaeger:14268/api/traces
       timeout: 5s
