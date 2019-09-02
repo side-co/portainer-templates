@@ -1,6 +1,6 @@
 [
   {
-    "type": "stack",
+    "type": 2,
     "title": "Opencensus Services",
     "description": "Easily collect telemetry like metrics and distributed traces from your services",
     "logo": "https://opencensus.io/images/opencensus-logo.png",
