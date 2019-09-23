@@ -13,3 +13,7 @@ This will run these services:
 - `jaegertracing/all-in-one:latest`
 - `omnition/opencensus-collector:latest`
 - `omnition/opencensus-agent:latest`
+
+```sh
+cd stacks/tracing ; docker stack deploy -c docker-stack.yml tracing
+```
