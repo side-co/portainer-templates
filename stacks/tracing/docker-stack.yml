@@ -10,7 +10,7 @@ services:
     restart: always
 
   # Collector
-  tracing_collector:
+  collector:
     image: omnition/opencensus-collector:latest
     command: ["--config=/etc/collector-config.yml", "--http-pprof-port=1777"]
     volumes:
@@ -25,7 +25,7 @@ services:
       - jaeger
 
   # Agent
-  tracing_agent:
+  agent:
     image: omnition/opencensus-agent:latest
     command: ["--config=/etc/agent-config.yml", "--http-pprof-port=1888"]
     volumes:
@@ -37,7 +37,7 @@ services:
       - "55679:55679"
     restart: always
     depends_on:
-      - tracing_collector
+      - collector
 
 networks:
   default:
