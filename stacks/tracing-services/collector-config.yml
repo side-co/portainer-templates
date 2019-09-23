@@ -1,5 +1,14 @@
+receivers:
+  opencensus:
+    port: 55678
+
+exporters:
+  prometheus:
+    namespace: "promdemo"
+    address: "localhost:9090"
+
 queued-exporters:
-  jaeger:
+  jaeger-all-in-one:
     num-workers: 4
     queue-size: 100
     retry-on-failure: true

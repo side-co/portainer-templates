@@ -2,7 +2,9 @@ receivers:
   opencensus:
     address: ":55678"
     reconnection-delay: 2s
+  jaeger:
+    collector_http_port: 14268
 
 exporters:
   opencensus:
-    endpoint: "oc_collector:55678"
+    endpoint: "tracing_collector:55678"

@@ -6,7 +6,10 @@ Documentation is available [ReadTheDocs](http://portainer.readthedocs.io/en/late
 
 ## Portainer templates
 
-- Tracing Services:
-  - `jaegertracing/all-in-one:latest`
-  - `omnition/opencensus-collector:latest`
-  - `omnition/opencensus-agent:latest`
+### Tracing Services
+
+This will run these services:
+
+- `jaegertracing/all-in-one:latest`
+- `omnition/opencensus-collector:latest`
+- `omnition/opencensus-agent:latest`
