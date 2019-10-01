@@ -1,4 +1,15 @@
-version: "3"
+version: "3.3"
+
+networks:
+  default:
+    external:
+      name: traefik-net
+
+configs:
+  telemetry_agent_config:
+    file: ./agent-config.yml
+  telemetry_collector_config:
+    file: ./collector-config.yml
 
 services:
   # Jaeger
@@ -13,8 +24,9 @@ services:
   telemetry_collector:
     image: omnition/opencensus-collector:latest
     command: ["--config=/etc/collector-config.yml", "--http-pprof-port=1777"]
-    volumes:
-      - ${PWD}/collector-config.yml:/etc/collector-config.yml
+    configs:
+      - source: telemetry_collector_config
+        target: /etc/collector-config.yml
     ports:
       - "55678"
       - "55680:55679"
@@ -28,8 +40,9 @@ services:
   telemetry_agent:
     image: omnition/opencensus-agent:latest
     command: ["--config=/etc/agent-config.yml", "--http-pprof-port=1888"]
-    volumes:
-      - ${PWD}/agent-config.yml:/etc/agent-config.yml
+    configs:
+      - source: telemetry_agent_config
+        target: /etc/agent-config.yml
     ports:
       - "1888:1888"
       - "14268:14268"
@@ -38,8 +51,3 @@ services:
     restart: always
     depends_on:
       - telemetry_collector
-
-networks:
-  default:
-    external:
-      name: traefik-net
